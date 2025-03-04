@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+class student {
+    private:
+        string name;
+        int RegNo;
+        float marks;
+
+    public:
+       
+        student() {
+
+            name = "";
+            RegNo = 0;
+            marks = 0.0;
+        }
+
+       
+        void input() {
+            cout << "Enter name: ";
+            cin.ignore();  
+            getline(cin, name);  
+            cout << "Enter Registration Number: ";
+            cin >> RegNo;
+            cout << "Enter Marks: ";
+            cin >> marks;
+        }
+
+        void Display() {
+            cout << "Name = " << name << endl;
+            cout << "Registration number = " << RegNo << endl;
+            cout << "Marks = " << marks << endl;
+        }
+};
+
+int main() {
+    student students[5]; 
+    for (int i = 0; i < 5; i++) {
+        cout << "\nEnter details for student " << i + 1 << ":" << endl;
+        students[i].input();
+    }
+
+   
+    cout << "\nStudent details are:\n";
+    for (int i = 0; i < 5; i++) {
+        cout << "\nStudent " << i + 1 << " Details:\n";
+        students[i].Display();
+    }
+
+    return 0;
+}
