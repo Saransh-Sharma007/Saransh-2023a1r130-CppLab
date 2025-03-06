@@ -1,0 +1,22 @@
+
+#include<iostream>
+using namespace std;
+class rectangle{
+    private: 
+    float length;
+    float width;
+    
+    public: void Display(){
+        cout<<"Enter the value of length";
+        cin>>length;
+        cout<<"Enter the value pf width";
+        cin>>width;
+        cout<<"The parameter of rectangle is :";
+        cout<<2*(length*width);
+    }
+};
+int main(){
+    rectangle obj;
+    obj.Display();
+    return 0;
+}
