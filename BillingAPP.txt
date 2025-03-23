@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+class BillingApp {
+private:
+    string Productname;     int Price;
+
+public:
+        BillingApp(string name, int price) {
+        Productname = name;
+        Price = price;
+    }
+
+        void Display() {
+        cout << "Product Name: " << Productname << endl;
+        cout << "Product Price: " << Price << endl;
+    }
+
+       void Discount() {
+        float discountAmount = Price * 0.10;  // 10% discount
+        float discountedPrice = Price - discountAmount;  // Price after discount
+
+        cout << "Original Price: " << Price << endl;
+        cout << "Discount (10%): " << discountAmount << endl;
+        cout << "Price after Discount: " << discountedPrice << endl;
+    }
+};
+
+int main() {
+    string name;
+    int price;
+
+    cout << "Enter name of Product: ";
+    cin >> name;
+    cout << "Enter price of Product: ";
+    cin >> price;
+
+    BillingApp obj(name, price);
+
+    obj.Display();
+
+    obj.Discount();
+
+    return 0;
+}
