@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class employee_management_system{
+    int Employee_ID;
+    string Employee_name;
+    public: employee_management_system(int id,string name){
+        Employee_ID=id;
+        Employee_name=name;;
+    }
+    public :void Display(){
+        cout<<"\nEmployee id ="<<Employee_ID;
+        cout<<"\nemployee name="<<Employee_name;
+    }
+};
+int main(){
+    int i;
+    employee_management_system obj[5]={{1,"Saransh"},{2,"Sumit"},{3,"Vinayak"},{4,"Ayush"},{5,"Prajwal"}};
+    for(i=0;i<5;i++){
+        obj[i].Display();
+    }
+
+}
