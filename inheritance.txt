@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+
+class MyApp {
+public:
+    void Welcome_message() {
+        cout << "Welcome to MIET Jammu" << endl;
+    }
+};
+
+class Student_Info : public MyApp {
+private:
+    int pass = 1234; // Example password
+    int pass1; // User input password
+public:
+    bool Logic() {
+        cout << "Enter your Password: ";
+        cin >> pass1;
+        if (pass == pass1) {
+            cout << "Login Successful" << endl;
+            return true;
+        } else {
+            cout << "Login Unsuccessful" << endl;
+            return false;
+        }
+    }
+};
+
+class MietInfo : public Student_Info {
+private:
+    string name;
+    int RegNo;
+protected:
+    int marks;
+public:
+    void Info() {
+        cout << "Enter your Name, Registration Number, and Marks (out of 500): ";
+        cin >> name >> RegNo >> marks;
+    }
+
+    void Display() {
+        cout << "\nInformation Entered by Student:" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Registration Number: " << RegNo << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+class Grade_calc : public MietInfo {
+public:
+    void Grade() {
+        // Assuming marks out of 500
+        float per = (marks / 500.0) * 100; // Calculate percentage
+        cout << "Percentage: " << per << "%" << endl;
+
+        if (per >= 80 && per <= 100) {
+            cout << "Your Grade is A" << endl;
+        } else if (per >= 70 && per < 80) {
+            cout << "Your Grade is B" << endl;
+        } else if (per >= 60 && per < 70) {
+            cout << "Your Grade is C" << endl;
+        } else if (per >= 0 && per < 60) {
+            cout << "Not qualified" << endl;
+        }
+    }
+};
+
+int main() {
+    Grade_calc obj;
+    obj.Welcome_message(); // Display welcome message
+
+    bool res = obj.Logic(); // Attempt login
+    if (res) {
+        obj.Info();  // Collect student information
+        obj.Display();  // Display the information
+        obj.Grade();  // Calculate and display grade
+    }
+
+    return 0;
+}
